@@ -1,0 +1,244 @@
+{
+  "generated_at_utc": "2026-08-28T12:26:27.943822+00:00",
+  "model_version": "historical-stress-validation-v1",
+  "validation_scope": "Historical heat-stress detection validation. This is not mortality-count accuracy testing because daily Delhi mortality labels are unavailable.",
+  "period": {
+    "start": "2024-05-02",
+    "end": "2024-05-31",
+    "days": 30
+  },
+  "event_detection": {
+    "temperature_only_warning_days": 29,
+    "comprehensive_warning_days": 30,
+    "dangerous_days_missed_by_40c_threshold": 1
+  },
+  "maximum_dates": {
+    "highest_temperature": "2024-05-28",
+    "highest_wbgt": "2024-05-24",
+    "highest_utci": "2024-05-31",
+    "highest_calibrated_risk": "2024-05-17"
+  },
+  "maximum_values": {
+    "temperature_max_c": 48.5,
+    "wbgt_max_c": 32.54,
+    "utci_max_c": 58.17,
+    "calibrated_risk_index": 100.0
+  },
+  "historical_risk_level_counts": {
+    "Extreme": 27,
+    "Moderate": 2,
+    "High": 1
+  },
+  "correlation_matrix": {
+    "temperature_max_c": {
+      "temperature_max_c": 1.0,
+      "humidity_mean_pct": -0.568,
+      "wbgt_max_c": 0.752,
+      "utci_max_c": 0.981,
+      "night_temperature_min_c": 0.838,
+      "historical_thermal_hazard_score": 0.876,
+      "historical_calibrated_risk_index": 0.745
+    },
+    "humidity_mean_pct": {
+      "temperature_max_c": -0.568,
+      "humidity_mean_pct": 1.0,
+      "wbgt_max_c": 0.092,
+      "utci_max_c": -0.575,
+      "night_temperature_min_c": -0.167,
+      "historical_thermal_hazard_score": -0.162,
+      "historical_calibrated_risk_index": -0.033
+    },
+    "wbgt_max_c": {
+      "temperature_max_c": 0.752,
+      "humidity_mean_pct": 0.092,
+      "wbgt_max_c": 1.0,
+      "utci_max_c": 0.71,
+      "night_temperature_min_c": 0.9,
+      "historical_thermal_hazard_score": 0.952,
+      "historical_calibrated_risk_index": 0.92
+    },
+    "utci_max_c": {
+      "temperature_max_c": 0.981,
+      "humidity_mean_pct": -0.575,
+      "wbgt_max_c": 0.71,
+      "utci_max_c": 1.0,
+      "night_temperature_min_c": 0.797,
+      "historical_thermal_hazard_score": 0.834,
+      "historical_calibrated_risk_index": 0.679
+    },
+    "night_temperature_min_c": {
+      "temperature_max_c": 0.838,
+      "humidity_mean_pct": -0.167,
+      "wbgt_max_c": 0.9,
+      "utci_max_c": 0.797,
+      "night_temperature_min_c": 1.0,
+      "historical_thermal_hazard_score": 0.97,
+      "historical_calibrated_risk_index": 0.909
+    },
+    "historical_thermal_hazard_score": {
+      "temperature_max_c": 0.876,
+      "humidity_mean_pct": -0.162,
+      "wbgt_max_c": 0.952,
+      "utci_max_c": 0.834,
+      "night_temperature_min_c": 0.97,
+      "historical_thermal_hazard_score": 1.0,
+      "historical_calibrated_risk_index": 0.956
+    },
+    "historical_calibrated_risk_index": {
+      "temperature_max_c": 0.745,
+      "humidity_mean_pct": -0.033,
+      "wbgt_max_c": 0.92,
+      "utci_max_c": 0.679,
+      "night_temperature_min_c": 0.909,
+      "historical_thermal_hazard_score": 0.956,
+      "historical_calibrated_risk_index": 1.0
+    }
+  },
+  "top_10_risk_days": [
+    {
+      "date": "2024-05-29",
+      "temperature_max_c": 48.07,
+      "humidity_mean_pct": 11.16,
+      "wbgt_max_c": 31.48,
+      "utci_max_c": 57.26,
+      "danger_hours": 14,
+      "extreme_hours": 9,
+      "consecutive_danger_days": 28,
+      "historical_thermal_hazard_score": 83.76,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-30",
+      "temperature_max_c": 47.77,
+      "humidity_mean_pct": 13.15,
+      "wbgt_max_c": 32.05,
+      "utci_max_c": 57.15,
+      "danger_hours": 11,
+      "extreme_hours": 9,
+      "consecutive_danger_days": 29,
+      "historical_thermal_hazard_score": 85.55,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-27",
+      "temperature_max_c": 47.76,
+      "humidity_mean_pct": 15.79,
+      "wbgt_max_c": 31.89,
+      "utci_max_c": 56.79,
+      "danger_hours": 12,
+      "extreme_hours": 9,
+      "consecutive_danger_days": 26,
+      "historical_thermal_hazard_score": 82.7,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-26",
+      "temperature_max_c": 47.84,
+      "humidity_mean_pct": 16.72,
+      "wbgt_max_c": 32.2,
+      "utci_max_c": 57.47,
+      "danger_hours": 13,
+      "extreme_hours": 10,
+      "consecutive_danger_days": 25,
+      "historical_thermal_hazard_score": 84.26,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-25",
+      "temperature_max_c": 46.22,
+      "humidity_mean_pct": 23.1,
+      "wbgt_max_c": 32.21,
+      "utci_max_c": 54.56,
+      "danger_hours": 12,
+      "extreme_hours": 8,
+      "consecutive_danger_days": 24,
+      "historical_thermal_hazard_score": 82.77,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-28",
+      "temperature_max_c": 48.5,
+      "humidity_mean_pct": 9.69,
+      "wbgt_max_c": 31.48,
+      "utci_max_c": 57.98,
+      "danger_hours": 14,
+      "extreme_hours": 10,
+      "consecutive_danger_days": 27,
+      "historical_thermal_hazard_score": 86.33,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-24",
+      "temperature_max_c": 43.11,
+      "humidity_mean_pct": 30.24,
+      "wbgt_max_c": 32.54,
+      "utci_max_c": 50.71,
+      "danger_hours": 11,
+      "extreme_hours": 6,
+      "consecutive_danger_days": 23,
+      "historical_thermal_hazard_score": 80.17,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-23",
+      "temperature_max_c": 43.06,
+      "humidity_mean_pct": 29.06,
+      "wbgt_max_c": 31.91,
+      "utci_max_c": 51.75,
+      "danger_hours": 10,
+      "extreme_hours": 7,
+      "consecutive_danger_days": 22,
+      "historical_thermal_hazard_score": 78.78,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-21",
+      "temperature_max_c": 45.96,
+      "humidity_mean_pct": 14.96,
+      "wbgt_max_c": 30.86,
+      "utci_max_c": 53.33,
+      "danger_hours": 10,
+      "extreme_hours": 8,
+      "consecutive_danger_days": 20,
+      "historical_thermal_hazard_score": 79.51,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    },
+    {
+      "date": "2024-05-22",
+      "temperature_max_c": 45.02,
+      "humidity_mean_pct": 18.14,
+      "wbgt_max_c": 30.84,
+      "utci_max_c": 52.79,
+      "danger_hours": 11,
+      "extreme_hours": 7,
+      "consecutive_danger_days": 21,
+      "historical_thermal_hazard_score": 76.67,
+      "evidence_relative_risk": 1.332,
+      "historical_calibrated_risk_index": 100.0,
+      "historical_risk_level": "Extreme"
+    }
+  ],
+  "limitations": [
+    "No daily mortality or hospitalization labels were available.",
+    "The test validates event detection and ranking, not predicted death counts.",
+    "Published city-level relative risks are used as provisional calibration factors."
+  ]
+}

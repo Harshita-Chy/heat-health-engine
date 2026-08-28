@@ -1,0 +1,63 @@
+{
+  "generated_at_utc": "2026-08-28T14:10:42.146360+00:00",
+  "overall_status": "passed",
+  "passed_checks": 11,
+  "failed_checks": 0,
+  "checks": [
+    {
+      "name": "Required files",
+      "passed": true,
+      "details": "All required files are available"
+    },
+    {
+      "name": "Forecast dimensions",
+      "passed": true,
+      "details": "1450 rows, 290 wards, 5 days"
+    },
+    {
+      "name": "Daily ward coverage",
+      "passed": true,
+      "details": "{'2026-08-28': 290, '2026-08-29': 290, '2026-08-30': 290, '2026-08-31': 290, '2026-09-01': 290}"
+    },
+    {
+      "name": "Risk index validity",
+      "passed": true,
+      "details": "Range 53.55 to 92.10"
+    },
+    {
+      "name": "GIS features",
+      "passed": true,
+      "details": "290 features, 290 unique ward IDs"
+    },
+    {
+      "name": "Forecast-to-map join",
+      "passed": true,
+      "details": "290 of 290 wards matched"
+    },
+    {
+      "name": "Pipeline status",
+      "passed": true,
+      "details": "Status: completed"
+    },
+    {
+      "name": "Backend health",
+      "passed": true,
+      "details": "Status: ready"
+    },
+    {
+      "name": "Daily forecast API",
+      "passed": true,
+      "details": "290 wards for 2026-08-28"
+    },
+    {
+      "name": "Ward forecast API",
+      "passed": true,
+      "details": "5 days for ward 1"
+    },
+    {
+      "name": "Alert preview API",
+      "passed": true,
+      "details": "Ward 1, date 2026-08-28"
+    }
+  ]
+}

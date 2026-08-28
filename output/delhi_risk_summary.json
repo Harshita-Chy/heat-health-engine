@@ -1,0 +1,45 @@
+{
+  "model_version": "provisional-impact-risk-v2",
+  "interpretation": "Relative heat-health impact ranking; not a predicted death count",
+  "wards": 290,
+  "forecast_dates": [
+    "2026-08-28",
+    "2026-08-29",
+    "2026-08-30",
+    "2026-08-31",
+    "2026-09-01"
+  ],
+  "maximum_risk_index": 72.83,
+  "daily_risk_level_counts": {
+    "2026-08-28": {
+      "Low": 0,
+      "Moderate": 0,
+      "High": 290,
+      "Extreme": 0
+    },
+    "2026-08-29": {
+      "Low": 0,
+      "Moderate": 0,
+      "High": 290,
+      "Extreme": 0
+    },
+    "2026-08-30": {
+      "Low": 0,
+      "Moderate": 0,
+      "High": 290,
+      "Extreme": 0
+    },
+    "2026-08-31": {
+      "Low": 0,
+      "Moderate": 0,
+      "High": 290,
+      "Extreme": 0
+    },
+    "2026-09-01": {
+      "Low": 0,
+      "Moderate": 0,
+      "High": 290,
+      "Extreme": 0
+    }
+  }
+}

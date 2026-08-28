@@ -1,0 +1,95 @@
+{
+  "generated_at_utc": "2026-08-28T14:08:19.247258+00:00",
+  "map_model_version": "calibrated-gis-map-v1",
+  "forecast_wards": 290,
+  "geojson_features": 290,
+  "maximum_calibrated_risk": 92.1,
+  "minimum_calibrated_risk": 67.41,
+  "risk_level_counts": {
+    "Extreme": 265,
+    "High": 25
+  },
+  "top_10_risk_wards": [
+    {
+      "ward_id": "261",
+      "ward_name": "JIWANPUR",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 92.1,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "236",
+      "ward_name": "RAGHUBAR PURA",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 91.82,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "241",
+      "ward_name": "DILSHAD GARDEN",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 91.77,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "239",
+      "ward_name": "VIVEK VIHAR",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 91.41,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "265",
+      "ward_name": "SHIV VIHAR",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 91.26,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "251",
+      "ward_name": "NEW USMANPUR",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 91.01,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "256",
+      "ward_name": "YAMUNA VIHAR",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 90.89,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "268",
+      "ward_name": "MUSTAFABAD",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 90.59,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "258",
+      "ward_name": "KARDAM PURI",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 90.34,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    },
+    {
+      "ward_id": "262",
+      "ward_name": "GOKALPUR",
+      "forecast_date": "2026-08-31",
+      "calibrated_mortality_risk_index": 90.3,
+      "calibrated_risk_level": "Extreme",
+      "evidence_relative_increase_pct": 27.03
+    }
+  ],
+  "interpretation": "Relative heat-health impact ranking; not a predicted death count."
+}

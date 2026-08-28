@@ -1,0 +1,124 @@
+{
+  "model_id": "delhi-evidence-calibrated-mortality-risk",
+  "model_version": "3.0.0",
+  "model_status": "operational_prototype",
+  "model_type": "hybrid_physics_epidemiological",
+  "trained_ml_model": false,
+  "geographic_scope": {
+    "operational_area": "Delhi",
+    "spatial_resolution": "Ward",
+    "wards": 290
+  },
+  "forecast_scope": {
+    "forecast_horizon_days": 5,
+    "temporal_resolution": "Daily",
+    "peak_risk_resolution": "Hourly"
+  },
+  "purpose": "Generate explainable relative heat-health and mortality-risk rankings for Delhi wards.",
+  "inputs": [
+    "temperature",
+    "relative_humidity",
+    "wind_speed",
+    "solar_radiation",
+    "heat_index",
+    "WBGT",
+    "UTCI",
+    "danger_hours",
+    "extreme_hours",
+    "night_temperature",
+    "consecutive_danger_days",
+    "population_exposure",
+    "population_density"
+  ],
+  "outputs": [
+    "evidence_relative_risk",
+    "evidence_relative_increase_pct",
+    "calibrated_mortality_risk_index",
+    "calibrated_risk_level",
+    "alert_code",
+    "recommended_action"
+  ],
+  "epidemiological_parameters": {
+    "two_day_danger_relative_risk": 1.147,
+    "five_day_extreme_relative_risk": 1.332,
+    "single_danger_day_operational_relative_risk": 1.05,
+    "single_severe_day_operational_relative_risk": 1.1
+  },
+  "severe_heat_proxy": {
+    "logic": "ANY",
+    "conditions": {
+      "wbgt_max_c_greater_than_or_equal": 35.0,
+      "utci_max_c_greater_than_or_equal": 46.0,
+      "extreme_hours_greater_than_or_equal": 1,
+      "thermal_hazard_score_greater_than_or_equal": 85.0
+    }
+  },
+  "risk_bands": [
+    {
+      "minimum": 0,
+      "maximum_exclusive": 25,
+      "level": "Low",
+      "alert_code": "GREEN",
+      "map_color": "#2ECC71"
+    },
+    {
+      "minimum": 25,
+      "maximum_exclusive": 50,
+      "level": "Moderate",
+      "alert_code": "YELLOW",
+      "map_color": "#F1C40F"
+    },
+    {
+      "minimum": 50,
+      "maximum_exclusive": 75,
+      "level": "High",
+      "alert_code": "ORANGE",
+      "map_color": "#E67E22"
+    },
+    {
+      "minimum": 75,
+      "maximum_inclusive": 100,
+      "level": "Extreme",
+      "alert_code": "RED",
+      "map_color": "#C0392B"
+    }
+  ],
+  "validation": {
+    "unit_test_status": "Passed",
+    "historical_validation_period": "2024-05-02 to 2024-05-31",
+    "historical_days_tested": 30,
+    "temperature_only_warning_days": 29,
+    "comprehensive_warning_days": 30,
+    "dangerous_days_missed_by_40c_threshold": 1,
+    "validation_interpretation": "Heat-event detection validation, not mortality-count accuracy testing."
+  },
+  "evidence_source": {
+    "title": "Impact of heatwaves on all-cause mortality in India: A comprehensive multi-city study",
+    "publication": "Environment International",
+    "year": 2024,
+    "cities": 10,
+    "includes_delhi": true,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38340402/"
+  },
+  "data_status": {
+    "weather_data": "Available",
+    "population_exposure_data": "Available",
+    "ward_boundary_data": "Available",
+    "delhi_ward_health_outcome_labels": "Unavailable",
+    "future_calibration_source": "Authorized IHIP or hospital aggregate data"
+  },
+  "recommended_use": [
+    "Relative ward-level risk prioritization",
+    "Heat action plan activation support",
+    "Cooling-centre prioritization",
+    "Hospital surge preparedness",
+    "Outdoor work-hour advisories"
+  ],
+  "prohibited_use": [
+    "Predicting an exact number of deaths",
+    "Individual medical diagnosis",
+    "Replacing decisions made by public-health authorities",
+    "Claiming ward-level mortality accuracy without health-outcome labels"
+  ],
+  "risk_interpretation": "The output is a relative evidence-calibrated heat-health impact ranking, not a predicted death count."
+}

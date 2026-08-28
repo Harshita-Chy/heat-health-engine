@@ -1,0 +1,75 @@
+{
+  "pipeline_version": "delhi-operational-pipeline-v1",
+  "started_at_utc": "2026-08-28T14:07:51.991584+00:00",
+  "completed_at_utc": "2026-08-28T14:08:19.323485+00:00",
+  "status": "completed",
+  "skip_fetch": false,
+  "steps": [
+    {
+      "step": 1,
+      "name": "Download ward-level weather forecast",
+      "module": "heat_health.ward_forecast",
+      "started_at_utc": "2026-08-28T14:07:51.991584+00:00",
+      "completed_at_utc": "2026-08-28T14:08:13.428160+00:00",
+      "duration_seconds": 21.44,
+      "status": "completed",
+      "outputs": [
+        "output\\delhi_ward_hourly_forecast.csv"
+      ]
+    },
+    {
+      "step": 2,
+      "name": "Calculate hourly thermal indices",
+      "module": "heat_health.forecast_thermal",
+      "started_at_utc": "2026-08-28T14:08:13.429941+00:00",
+      "completed_at_utc": "2026-08-28T14:08:17.040253+00:00",
+      "duration_seconds": 3.62,
+      "status": "completed",
+      "outputs": [
+        "output\\delhi_ward_hourly_thermal_forecast.csv"
+      ]
+    },
+    {
+      "step": 3,
+      "name": "Generate daily ward risk forecast",
+      "module": "heat_health.daily_risk_forecast",
+      "started_at_utc": "2026-08-28T14:08:17.056117+00:00",
+      "completed_at_utc": "2026-08-28T14:08:18.027352+00:00",
+      "duration_seconds": 0.97,
+      "status": "completed",
+      "outputs": [
+        "output\\delhi_ward_daily_risk_forecast.csv",
+        "output\\delhi_5day_peak_risk_map.geojson",
+        "output\\delhi_risk_summary.json"
+      ]
+    },
+    {
+      "step": 4,
+      "name": "Apply mortality-risk calibration",
+      "module": "heat_health.mortality_calibration",
+      "started_at_utc": "2026-08-28T14:08:18.042991+00:00",
+      "completed_at_utc": "2026-08-28T14:08:18.687687+00:00",
+      "duration_seconds": 0.64,
+      "status": "completed",
+      "outputs": [
+        "output\\delhi_ward_daily_calibrated_risk.csv",
+        "output\\delhi_mortality_calibration_summary.json"
+      ]
+    },
+    {
+      "step": 5,
+      "name": "Generate calibrated GIS products",
+      "module": "heat_health.calibrated_map",
+      "started_at_utc": "2026-08-28T14:08:18.693041+00:00",
+      "completed_at_utc": "2026-08-28T14:08:19.312029+00:00",
+      "duration_seconds": 0.62,
+      "status": "completed",
+      "outputs": [
+        "output\\delhi_5day_peak_calibrated_risk_map.geojson",
+        "output\\delhi_calibrated_hotspots.csv",
+        "output\\delhi_calibrated_map_summary.json"
+      ]
+    }
+  ],
+  "duration_seconds": 27.33
+}

@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-08-28T14:08:18.629986+00:00",
+  "model_version": "evidence-calibrated-impact-risk-v3",
+  "input_file": "C:\\SIH\\heat-health-engine\\output\\delhi_ward_daily_risk_forecast.csv",
+  "output_file": "C:\\SIH\\heat-health-engine\\output\\delhi_ward_daily_calibrated_risk.csv",
+  "rows": 1450,
+  "wards": 290,
+  "forecast_days": 5,
+  "maximum_original_mri": 72.83,
+  "maximum_calibrated_mri": 92.1,
+  "maximum_evidence_relative_increase_pct": 33.2,
+  "calibrated_risk_level_counts": {
+    "High": 887,
+    "Extreme": 563
+  },
+  "published_evidence": {
+    "study_scope": "Ten Indian cities, including Delhi",
+    "two_day_relative_risk": 1.147,
+    "five_day_extreme_relative_risk": 1.332,
+    "reference": "de Bont et al., Environment International, 2024"
+  },
+  "limitations": [
+    "No Delhi ward-level mortality or hospitalization labels were used.",
+    "Published city-level relationships are mapped using operational heat proxies.",
+    "Outputs are relative impact rankings and must not be interpreted as predicted death counts."
+  ]
+}

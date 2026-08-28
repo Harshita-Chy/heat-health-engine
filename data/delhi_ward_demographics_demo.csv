@@ -1,0 +1,6 @@
+ward_id,ward_name,population,area_sq_km,children_0_6,elderly_60_plus,outdoor_workers,mean_ndvi,hospitals_per_100k
+DEMO-001,Demo Ward A,65000,3.1,7200,6100,9800,0.18,1.2
+DEMO-002,Demo Ward B,42000,5.8,3900,5200,4200,0.42,3.5
+DEMO-003,Demo Ward C,91000,2.7,11800,7200,15200,0.11,0.8
+DEMO-004,Demo Ward D,53000,4.4,5100,8400,5900,0.31,2.4
+DEMO-005,Demo Ward E,76000,3.5,8900,6600,12100,0.15,1.5
