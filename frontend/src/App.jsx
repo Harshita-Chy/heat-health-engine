@@ -42,6 +42,24 @@ function App() {
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [theme, setTheme] = useState("dark");
+  const [activeNav, setActiveNav] = useState("overview");
+
+  const navItems = [
+    { key: "overview", label: "Overview" },
+    { key: "forecast", label: "Forecast" },
+    { key: "wards", label: "Wards" },
+    { key: "alerts", label: "Alerts" },
+  ];
+
+  function handleNavClick(sectionKey) {
+    setActiveNav(sectionKey);
+    const target = document.getElementById(sectionKey);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
 
   async function handleRefresh() {
   try {
@@ -120,12 +138,18 @@ function App() {
   const totalFiles = Object.keys(health?.files ?? {}).length;
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-theme={theme}>
       <header className="dashboard-header">
-        <div>
+        <div className="brand-panel">
           <div className="brand-line">
-            <ThermometerSun size={30} />
-            <h1>Delhi Heat-Health Command Centre</h1>
+            <div className="brand-icon">
+              <ThermometerSun size={24} />
+            </div>
+
+            <div>
+              <span className="brand-kicker">Public Health Intelligence</span>
+              <h1>Delhi Heat-Health Command Centre</h1>
+            </div>
           </div>
 
           <p>
@@ -133,7 +157,38 @@ function App() {
           </p>
         </div>
 
+        <nav className="main-nav" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <button
+              key={item.key}
+              type="button"
+              className={`nav-item ${activeNav === item.key ? "active" : ""}`}
+              aria-pressed={activeNav === item.key}
+              onClick={() => handleNavClick(item.key)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
         <div className="header-actions">
+          <button
+            type="button"
+            className={`theme-toggle ${theme === "dark" ? "is-dark" : "is-light"}`}
+            onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+            aria-label="Toggle dark and light mode"
+            aria-pressed={theme === "dark"}
+          >
+            <span className="theme-toggle-track">
+              <span className="theme-toggle-thumb">
+                {theme === "dark" ? "☾" : "☀"}
+              </span>
+            </span>
+            <span className="theme-toggle-label">
+              {theme === "dark" ? "Dark" : "Light"}
+            </span>
+          </button>
+
           <span className="system-status">
             <span className="status-dot" />
             API {health?.status ?? "unknown"}
@@ -153,7 +208,40 @@ function App() {
       {error && <div className="warning-banner">{error}</div>}
 
       <main className="dashboard-content">
-        <section className="stat-grid">
+        <section id="alerts" className="panel actions-panel top-actions-panel">
+          <div className="panel-heading">
+            <div>
+              <span className="eyebrow">Automated response</span>
+              <h2>Recommended actions</h2>
+            </div>
+            <AlertTriangle size={22} />
+          </div>
+
+          <ul className="action-list">
+            <li>
+              <span>1</span>
+              Open cooling centres in extreme-risk wards.
+            </li>
+            <li>
+              <span>2</span>
+              Shift outdoor work away from afternoon peak hours.
+            </li>
+            <li>
+              <span>3</span>
+              Alert hospitals about a possible heat-illness surge.
+            </li>
+            <li>
+              <span>4</span>
+              Push localized SMS and WhatsApp heat advisories.
+            </li>
+          </ul>
+
+          <div className="update-time">
+            Forecast generated: {formatTime(forecast.generated_at_utc)}
+          </div>
+        </section>
+
+        <section id="overview" className="stat-grid">
           <article className="stat-card danger">
             <div className="stat-icon">
               <HeartPulse />
@@ -202,7 +290,9 @@ function App() {
             </div>
           </article>
         </section>
-        <WardMap />
+        <div id="forecast">
+          <WardMap />
+        </div>
         <section className="dashboard-grid">
           <article className="panel risk-panel">
             <div className="panel-heading">
@@ -292,7 +382,7 @@ function App() {
         </section>
 
         <section className="dashboard-grid lower-grid">
-          <article className="panel hotspot-panel">
+          <article id="wards" className="panel hotspot-panel">
             <div className="panel-heading">
               <div>
                 <span className="eyebrow">Priority intervention</span>
@@ -340,38 +430,6 @@ function App() {
             </div>
           </article>
 
-          <article className="panel actions-panel">
-            <div className="panel-heading">
-              <div>
-                <span className="eyebrow">Automated response</span>
-                <h2>Recommended actions</h2>
-              </div>
-              <AlertTriangle size={22} />
-            </div>
-
-            <ul className="action-list">
-              <li>
-                <span>1</span>
-                Open cooling centres in extreme-risk wards.
-              </li>
-              <li>
-                <span>2</span>
-                Shift outdoor work away from afternoon peak hours.
-              </li>
-              <li>
-                <span>3</span>
-                Alert hospitals about a possible heat-illness surge.
-              </li>
-              <li>
-                <span>4</span>
-                Push localized SMS and WhatsApp heat advisories.
-              </li>
-            </ul>
-
-            <div className="update-time">
-              Forecast generated: {formatTime(forecast.generated_at_utc)}
-            </div>
-          </article>
         </section>
         
       </main>
